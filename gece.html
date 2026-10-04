@@ -1,0 +1,1666 @@
+```html
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Gecə — 18+ Tanışlıq</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+    font-family:Arial,sans-serif;
+    background:#0b0910;
+    color:#fff;
+    min-height:100vh
+}
+button,input,textarea,select{font:inherit}
+button{border:0;cursor:pointer}
+button:disabled{opacity:.5;cursor:not-allowed}
+
+header{
+    height:70px;
+    background:#15111d;
+    border-bottom:1px solid #292332;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 5%;
+    position:sticky;
+    top:0;
+    z-index:50
+}
+.logo{
+    color:#ff4f91;
+    font-size:28px;
+    font-weight:900;
+    cursor:pointer
+}
+nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+nav button{
+    background:none;
+    color:#ddd;
+    padding:9px 10px;
+    border-radius:9px
+}
+nav button:hover{background:#292330;color:#ff70a9}
+
+.page{display:none;min-height:calc(100vh - 70px)}
+.page.active{display:block}
+
+.container{
+    width:90%;
+    max-width:1150px;
+    margin:auto
+}
+
+.hero{
+    min-height:calc(100vh - 70px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:50px 20px;
+    background:
+    radial-gradient(circle at 50% 25%,#562342 0,#241226 30%,#0b0910 65%)
+}
+.hero-content{max-width:800px}
+.hero h1{
+    font-size:62px;
+    line-height:1.1;
+    margin-bottom:20px
+}
+.hero h1 span{color:#ff4f91}
+.hero p{
+    color:#c8c1ce;
+    font-size:19px;
+    line-height:1.7;
+    margin-bottom:30px
+}
+
+.actions{
+    display:flex;
+    gap:12px;
+    justify-content:center;
+    flex-wrap:wrap
+}
+
+.primary,.secondary,.danger{
+    padding:13px 21px;
+    border-radius:11px;
+    transition:.2s
+}
+.primary{background:#ff4f91;color:white}
+.primary:hover{background:#ff347e;transform:translateY(-1px)}
+.secondary{background:#292330;color:white}
+.secondary:hover{background:#362d3e}
+.danger{background:#8c263d;color:white}
+
+section{padding:55px 0}
+.title{text-align:center;margin-bottom:30px}
+.title h2{font-size:34px;margin-bottom:8px}
+.title p{color:#999}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:20px
+}
+
+.card{
+    background:#17131e;
+    border:1px solid #2c2634;
+    border-radius:18px;
+    overflow:hidden;
+    transition:.25s
+}
+.card:hover{
+    transform:translateY(-4px);
+    border-color:#65354e
+}
+
+.avatar{
+    height:230px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:85px;
+    background:linear-gradient(135deg,#46213f,#211728);
+    position:relative
+}
+.online{
+    position:absolute;
+    right:15px;
+    top:15px;
+    background:#5ee68a;
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    box-shadow:0 0 12px #5ee68a
+}
+
+.card-body{padding:19px}
+.card-body h3{margin-bottom:7px}
+.muted{
+    color:#aaa;
+    font-size:14px;
+    line-height:1.6
+}
+.card-body button{margin-top:13px}
+
+.box{
+    width:100%;
+    max-width:470px;
+    margin:55px auto;
+    background:#17131e;
+    border:1px solid #2c2634;
+    border-radius:20px;
+    padding:30px
+}
+.box h2{text-align:center;margin-bottom:9px}
+.box>p{text-align:center;color:#aaa;margin-bottom:24px}
+
+label{
+    display:block;
+    color:#ddd;
+    margin:14px 0 7px
+}
+input,textarea,select{
+    width:100%;
+    padding:13px 14px;
+    border-radius:11px;
+    border:1px solid #3a3342;
+    background:#0e0b12;
+    color:#fff;
+    outline:none
+}
+input:focus,textarea:focus,select:focus{
+    border-color:#ff4f91
+}
+textarea{
+    min-height:120px;
+    resize:vertical
+}
+.full{width:100%;margin-top:16px}
+.message{text-align:center;min-height:22px;margin-top:14px;font-size:14px}
+.error{color:#ff7185}
+.success{color:#62e994}
+
+.profile{
+    display:grid;
+    grid-template-columns:300px 1fr;
+    gap:25px;
+    max-width:900px;
+    margin:50px auto
+}
+.profile-photo{
+    height:300px;
+    border-radius:22px;
+    background:linear-gradient(135deg,#43203e,#211827);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:110px;
+    overflow:hidden;
+    border:1px solid #332b3a
+}
+.profile-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover
+}
+.profile-info{
+    background:#17131e;
+    border:1px solid #2b2532;
+    border-radius:20px;
+    padding:28px
+}
+.profile-info h2{margin-bottom:8px}
+.tag{
+    display:inline-block;
+    background:#292330;
+    color:#ddd;
+    padding:7px 10px;
+    border-radius:20px;
+    margin:5px 4px 0 0;
+    font-size:13px
+}
+
+.filters{
+    display:grid;
+    grid-template-columns:1fr 180px 180px auto;
+    gap:10px;
+    margin-bottom:25px
+}
+
+.story{
+    padding:25px;
+    background:#17131e;
+    border:1px solid #2b2532;
+    border-radius:18px
+}
+.story h3{color:#ff6da5;margin-bottom:10px}
+.story p{color:#bbb;line-height:1.7}
+
+.chat{
+    max-width:760px;
+    margin:45px auto;
+    background:#17131e;
+    border:1px solid #2b2532;
+    border-radius:20px;
+    overflow:hidden
+}
+.chat-head{
+    padding:18px 20px;
+    border-bottom:1px solid #2b2532;
+    display:flex;
+    align-items:center;
+    gap:13px
+}
+.chat-avatar{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    background:#42203d;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px
+}
+.messages{
+    height:410px;
+    padding:20px;
+    overflow:auto
+}
+.msg{
+    max-width:75%;
+    padding:11px 14px;
+    border-radius:15px;
+    margin-bottom:12px;
+    background:#292330;
+    line-height:1.5
+}
+.msg.me{
+    margin-left:auto;
+    background:#ff4f91
+}
+.msg.ai{margin-right:auto}
+.chat-input{
+    display:flex;
+    gap:10px;
+    padding:15px;
+    border-top:1px solid #2b2532
+}
+.chat-input input{flex:1}
+.chat-input button{
+    padding:0 20px;
+    border-radius:11px;
+    background:#ff4f91;
+    color:white
+}
+
+.match-box{
+    text-align:center;
+    max-width:520px;
+    margin:70px auto;
+    background:#17131e;
+    border:1px solid #ff4f91;
+    border-radius:22px;
+    padding:35px
+}
+.match-box .heart{
+    font-size:65px;
+    margin-bottom:12px
+}
+
+.notification{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    background:#17131e;
+    border:1px solid #ff4f91;
+    border-radius:13px;
+    padding:15px 18px;
+    z-index:200;
+    display:none;
+    box-shadow:0 10px 35px #0008
+}
+
+.age-warning{
+    position:fixed;
+    inset:0;
+    background:#09070df5;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:300
+}
+.age-box{
+    background:#17131e;
+    border:1px solid #ff4f91;
+    border-radius:20px;
+    padding:35px;
+    max-width:440px;
+    text-align:center;
+    margin:20px
+}
+.age-box h2{margin-bottom:12px}
+.age-box p{
+    color:#bbb;
+    line-height:1.6;
+    margin-bottom:22px
+}
+
+.empty{
+    text-align:center;
+    color:#999;
+    padding:40px
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#777;
+    background:#09080d
+}
+
+.hidden{display:none!important}
+
+@media(max-width:800px){
+    header{
+        height:auto;
+        min-height:70px;
+        padding:12px 4%;
+        gap:10px
+    }
+    nav{justify-content:flex-end}
+    nav button{font-size:12px;padding:7px}
+    .hero h1{font-size:42px}
+    .profile{grid-template-columns:1fr}
+    .profile-photo{height:260px}
+    .filters{grid-template-columns:1fr 1fr}
+}
+
+@media(max-width:500px){
+    .hero h1{font-size:35px}
+    .hero p{font-size:16px}
+    .filters{grid-template-columns:1fr}
+    .chat-input button{padding:0 14px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo" onclick="showPage('home')">Gecə</div>
+
+    <nav>
+        <button onclick="showPage('home')">Ana səhifə</button>
+        <button onclick="showPage('discover')">Kəşf et</button>
+        <button onclick="showPage('stories')">Hekayələr</button>
+        <button id="navChat" class="hidden" onclick="showPage('chat')">💬</button>
+        <button id="navProfile" class="hidden" onclick="showPage('profile')">Profil</button>
+        <button id="navAuth" onclick="showPage('login')">Giriş</button>
+    </nav>
+</header>
+
+<!-- ANA SƏHİFƏ -->
+<div id="home" class="page active">
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Yeni insanlarla <span>tanış ol</span></h1>
+            <p>
+                Gecə — yeni insanları kəşf edə biləcəyin,
+                söhbət edə biləcəyin və maraqlı hekayələr oxuya biləcəyin 18+ tanışlıq platforması.
+            </p>
+
+            <div class="actions">
+                <button class="primary" onclick="showPage('register')">Qeydiyyatdan keç</button>
+                <button class="secondary" onclick="showPage('discover')">İnsanları kəşf et</button>
+            </div>
+        </div>
+    </div>
+
+    <section>
+        <div class="container">
+            <div class="title">
+                <h2>⭐ Populyar profillər</h2>
+                <p>Bu gün aktiv olan profillər</p>
+            </div>
+            <div id="popularGrid" class="grid"></div>
+        </div>
+    </section>
+</div>
+
+<!-- QEYDİYYAT -->
+<div id="register" class="page">
+    <div class="container">
+        <div class="box">
+            <h2>Qeydiyyat</h2>
+            <p>Gecə platformasına qoşul</p>
+
+            <form id="registerForm">
+                <label>İstifadəçi adı</label>
+                <input id="regUser" minlength="3" maxlength="20" placeholder="Məsələn: Aylin24" required>
+
+                <label>Yaş</label>
+                <input id="regAge" type="number" min="18" max="100" placeholder="18" required>
+
+                <label>Şifrə</label>
+                <input id="regPass" type="password" minlength="6" placeholder="Minimum 6 simvol" required>
+
+                <button class="primary full">Qeydiyyatdan keç</button>
+                <div id="regMsg" class="message"></div>
+            </form>
+
+            <p class="muted" style="margin-top:20px">
+                Hesabın var?
+                <button style="background:none;color:#ff6da5" type="button" onclick="showPage('login')">
+                    Giriş et
+                </button>
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- GİRİŞ -->
+<div id="login" class="page">
+    <div class="container">
+        <div class="box">
+            <h2>Giriş</h2>
+            <p>Hesabına daxil ol</p>
+
+            <form id="loginForm">
+                <label>İstifadəçi adı</label>
+                <input id="loginUser" required>
+
+                <label>Şifrə</label>
+                <input id="loginPass" type="password" required>
+
+                <button class="primary full">Giriş</button>
+                <div id="loginMsg" class="message"></div>
+            </form>
+
+            <p class="muted" style="margin-top:20px">
+                Hesabın yoxdur?
+                <button style="background:none;color:#ff6da5" type="button" onclick="showPage('register')">
+                    Qeydiyyatdan keç
+                </button>
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- KƏŞF -->
+<div id="discover" class="page">
+    <section>
+        <div class="container">
+
+            <div class="title">
+                <h2>🔎 İnsanları kəşf et</h2>
+                <p>Özünə uyğun profilləri tap</p>
+            </div>
+
+            <div class="filters">
+                <input id="searchInput" placeholder="Ad axtar...">
+
+                <select id="cityFilter">
+                    <option value="">Bütün şəhərlər</option>
+                    <option>Bakı</option>
+                    <option>Gəncə</option>
+                    <option>Sumqayıt</option>
+                    <option>Şəki</option>
+                </select>
+
+                <select id="genderFilter">
+                    <option value="">Hamısı</option>
+                    <option value="female">Qadın</option>
+                    <option value="male">Kişi</option>
+                </select>
+
+                <button class="secondary" onclick="resetFilters()">Sıfırla</button>
+            </div>
+
+            <div id="discoverGrid" class="grid"></div>
+        </div>
+    </section>
+</div>
+
+<!-- PROFİL -->
+<div id="profile" class="page">
+    <div class="container">
+        <div class="profile">
+
+            <div>
+                <div id="profilePhoto" class="profile-photo">🙂</div>
+
+                <input
+                    id="photoInput"
+                    type="file"
+                    accept="image/*"
+                    class="hidden"
+                    onchange="changePhoto(event)"
+                >
+
+                <button class="secondary full" onclick="document.getElementById('photoInput').click()">
+                    📷 Şəkil dəyiş
+                </button>
+            </div>
+
+            <div class="profile-info">
+                <h2 id="profileName">Profil</h2>
+                <p id="profileAge" class="muted"></p>
+
+                <p id="profileBio" style="margin-top:18px;line-height:1.6;color:#ccc">
+                    Özün haqqında məlumat əlavə et.
+                </p>
+
+                <div id="profileTags" style="margin-top:15px"></div>
+
+                <button class="primary full" onclick="openEditProfile()">
+                    ✏️ Profili redaktə et
+                </button>
+
+                <button class="secondary full" onclick="showPage('chat')">
+                    💬 Mesajlara keç
+                </button>
+
+                <button class="danger full" onclick="logout()">
+                    Çıxış
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PROFİL REDAKTƏ -->
+<div id="editProfile" class="page">
+    <div class="container">
+        <div class="box">
+            <h2>Profilini redaktə et</h2>
+            <p>Məlumatlarını yenilə</p>
+
+            <label>Ad</label>
+            <input id="editName">
+
+            <label>Bio</label>
+            <textarea id="editBio" placeholder="Özün haqqında yaz..."></textarea>
+
+            <label>Şəhər</label>
+            <select id="editCity">
+                <option>Bakı</option>
+                <option>Gəncə</option>
+                <option>Sumqayıt</option>
+                <option>Şəki</option>
+            </select>
+
+            <label>Maraqlar</label>
+            <input id="editInterests" placeholder="Musiqi, kino, səyahət">
+
+            <button class="primary full" onclick="saveProfile()">Yadda saxla</button>
+            <button class="secondary full" onclick="showPage('profile')">Geri</button>
+        </div>
+    </div>
+</div>
+
+<!-- MATCH -->
+<div id="match" class="page">
+    <div class="container">
+        <div class="match-box">
+            <div class="heart">💖</div>
+            <h2>Bu bir Match-dir!</h2>
+            <p id="matchText" class="muted" style="margin-top:12px"></p>
+
+            <div class="actions" style="margin-top:25px">
+                <button class="primary" onclick="showPage('chat')">💬 Mesaj yaz</button>
+                <button class="secondary" onclick="showPage('discover')">Kəşfə qayıt</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CHAT -->
+<div id="chat" class="page">
+    <div class="container">
+        <div class="chat">
+
+            <div class="chat-head">
+                <div id="chatAvatar" class="chat-avatar">👩</div>
+                <div>
+                    <h3 id="chatName">Aylin</h3>
+                    <p id="chatStatus" class="muted">AI profil · Onlayn</p>
+                </div>
+            </div>
+
+            <div id="messages" class="messages"></div>
+
+            <form id="chatForm" class="chat-input">
+                <input id="chatText" placeholder="Mesaj yaz..." autocomplete="off" required>
+                <button>Göndər</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- HEKAYƏLƏR -->
+<div id="stories" class="page">
+    <section>
+        <div class="container">
+
+            <div class="title">
+                <h2>📖 Romantik hekayələr</h2>
+                <p>Oxu, kəşf et və öz hekayəni yarat</p>
+            </div>
+
+            <div id="storiesGrid" class="grid"></div>
+        </div>
+    </section>
+</div>
+
+<!-- HEKAYƏ OXU -->
+<div id="storyReader" class="page">
+    <div class="container">
+        <div class="box" style="max-width:800px">
+            <h2 id="readerTitle"></h2>
+            <p id="readerText" style="color:#bbb;line-height:1.9;margin-top:20px"></p>
+
+            <button class="secondary full" onclick="showPage('stories')">
+                ← Hekayələrə qayıt
+            </button>
+        </div>
+    </div>
+</div>
+
+<footer>
+    © 2026 Gecə · 18+ · Demo versiya
+</footer>
+
+<div id="notification" class="notification"></div>
+
+<!-- YAŞ YOXLAMASI -->
+<div id="ageWarning" class="age-warning">
+    <div class="age-box">
+        <h2>🔞 18+ Sayt</h2>
+
+        <p>
+            Bu platforma yalnız 18 yaş və yuxarı şəxslər üçündür.
+            Davam etməklə 18 yaşdan yuxarı olduğunu təsdiqləyirsən.
+        </p>
+
+        <div class="actions">
+            <button class="primary" onclick="acceptAge()">18+ — Davam et</button>
+            <button class="secondary" onclick="leaveSite()">Çıx</button>
+        </div>
+    </div>
+</div>
+
+<script>
+
+/* =========================
+   SƏHİFƏLƏR
+========================= */
+
+const pages=[
+    "home",
+    "register",
+    "login",
+    "discover",
+    "profile",
+    "editProfile",
+    "match",
+    "chat",
+    "stories",
+    "storyReader"
+];
+
+function showPage(id){
+
+    pages.forEach(page=>{
+        const element=document.getElementById(page);
+        if(element) element.classList.remove("active");
+    });
+
+    const target=document.getElementById(id);
+
+    if(target){
+        target.classList.add("active");
+        window.scrollTo(0,0);
+    }
+
+    if(id==="chat"){
+        loadChat();
+    }
+}
+
+
+/* =========================
+   YAŞ
+========================= */
+
+function acceptAge(){
+    localStorage.setItem("ageAccepted","yes");
+    document.getElementById("ageWarning").style.display="none";
+}
+
+function leaveSite(){
+
+    document.body.innerHTML=`
+        <div style="
+        min-height:100vh;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        background:#0d0b12;
+        color:white;
+        font-family:Arial;
+        text-align:center;
+        padding:30px">
+
+            <div>
+                <h2>Giriş mümkün deyil</h2>
+                <p style="color:#aaa;margin-top:10px">
+                    Bu sayt yalnız 18+ istifadəçilər üçündür.
+                </p>
+            </div>
+
+        </div>
+    `;
+}
+
+if(localStorage.getItem("ageAccepted")==="yes"){
+    document.getElementById("ageWarning").style.display="none";
+}
+
+
+/* =========================
+   DEMO PROFİLLƏR
+========================= */
+
+const profiles=[
+    {
+        id:1,
+        name:"Aylin",
+        age:24,
+        city:"Bakı",
+        gender:"female",
+        avatar:"👩",
+        online:true,
+        ai:true,
+        bio:"Musiqi, səyahət və gecə söhbətlərini sevirəm.",
+        interests:["Musiqi","Səyahət","Kino"]
+    },
+    {
+        id:2,
+        name:"Lalə",
+        age:25,
+        city:"Gəncə",
+        gender:"female",
+        avatar:"👩‍🦰",
+        online:true,
+        ai:true,
+        bio:"Kitab oxumağı və yeni yerlər kəşf etməyi sevirəm.",
+        interests:["Kitab","Səyahət","Foto"]
+    },
+    {
+        id:3,
+        name:"Nigar",
+        age:23,
+        city:"Bakı",
+        gender:"female",
+        avatar:"👩‍🦱",
+        online:true,
+        ai:true,
+        bio:"Kino, musiqi və uzun söhbətlər mənim üçün əladır.",
+        interests:["Kino","Musiqi","Kofe"]
+    },
+    {
+        id:4,
+        name:"Murad",
+        age:27,
+        city:"Bakı",
+        gender:"male",
+        avatar:"👨",
+        online:false,
+        ai:false,
+        bio:"İdman və kino həvəskarıyam.",
+        interests:["İdman","Kino","Oyun"]
+    },
+    {
+        id:5,
+        name:"Kamran",
+        age:26,
+        city:"Sumqayıt",
+        gender:"male",
+        avatar:"👨‍🦱",
+        online:true,
+        ai:false,
+        bio:"Yeni insanlarla tanış olmağı sevirəm.",
+        interests:["Səyahət","Oyun","Musiqi"]
+    },
+    {
+        id:6,
+        name:"Zəhra",
+        age:26,
+        city:"Şəki",
+        gender:"female",
+        avatar:"👩",
+        online:true,
+        ai:true,
+        bio:"Sakit söhbətləri, təbiəti və kitabları sevirəm.",
+        interests:["Təbiət","Kitab","Kino"]
+    }
+];
+
+
+/* =========================
+   HESAB
+========================= */
+
+function getUser(){
+
+    try{
+        return JSON.parse(localStorage.getItem("geceAccount"));
+    }catch(e){
+        return null;
+    }
+}
+
+function saveUser(user){
+    localStorage.setItem("geceAccount",JSON.stringify(user));
+}
+
+function updateNav(){
+
+    const user=getUser();
+
+    document.getElementById("navAuth")
+        .classList.toggle("hidden",!!user);
+
+    document.getElementById("navProfile")
+        .classList.toggle("hidden",!user);
+
+    document.getElementById("navChat")
+        .classList.toggle("hidden",!user);
+
+    if(user){
+        renderProfile();
+    }
+}
+
+updateNav();
+
+
+/* =========================
+   QEYDİYYAT
+========================= */
+
+document.getElementById("registerForm").addEventListener("submit",function(e){
+
+    e.preventDefault();
+
+    const username=document.getElementById("regUser").value.trim();
+    const age=Number(document.getElementById("regAge").value);
+    const password=document.getElementById("regPass").value;
+    const msg=document.getElementById("regMsg");
+
+    if(age<18){
+
+        msg.className="message error";
+        msg.textContent="Qeydiyyat üçün 18 yaş və ya yuxarı olmalısan.";
+        return;
+    }
+
+    if(password.length<6){
+
+        msg.className="message error";
+        msg.textContent="Şifrə ən azı 6 simvol olmalıdır.";
+        return;
+    }
+
+    const user={
+        username,
+        age,
+        password,
+        city:"Bakı",
+        bio:"Salam! Mən Gecə platformasına yeni qoşulmuşam.",
+        interests:["Tanışlıq","Söhbət"],
+        photo:""
+    };
+
+    saveUser(user);
+
+    msg.className="message success";
+    msg.textContent="Qeydiyyat uğurludur!";
+
+    updateNav();
+
+    setTimeout(()=>{
+        showPage("profile");
+    },500);
+});
+
+
+/* =========================
+   GİRİŞ
+========================= */
+
+document.getElementById("loginForm").addEventListener("submit",function(e){
+
+    e.preventDefault();
+
+    const account=getUser();
+
+    const username=document.getElementById("loginUser").value.trim();
+    const password=document.getElementById("loginPass").value;
+
+    const msg=document.getElementById("loginMsg");
+
+    if(!account){
+
+        msg.className="message error";
+        msg.textContent="Əvvəlcə qeydiyyatdan keç.";
+        return;
+    }
+
+    if(username===account.username && password===account.password){
+
+        msg.className="message success";
+        msg.textContent="Giriş uğurludur!";
+
+        setTimeout(()=>{
+            showPage("profile");
+        },500);
+
+    }else{
+
+        msg.className="message error";
+        msg.textContent="İstifadəçi adı və ya şifrə yanlışdır.";
+    }
+});
+
+
+/* =========================
+   PROFİL
+========================= */
+
+function renderProfile(){
+
+    const user=getUser();
+
+    if(!user)return;
+
+    document.getElementById("profileName").textContent=
+        user.username;
+
+    document.getElementById("profileAge").textContent=
+        "🔞 "+user.age+" yaş · "+(user.city||"Azərbaycan");
+
+    document.getElementById("profileBio").textContent=
+        user.bio||"Bio əlavə edilməyib.";
+
+    const tags=document.getElementById("profileTags");
+
+    tags.innerHTML="";
+
+    (user.interests||[]).forEach(item=>{
+
+        const span=document.createElement("span");
+
+        span.className="tag";
+        span.textContent=item;
+
+        tags.appendChild(span);
+    });
+
+    const photo=document.getElementById("profilePhoto");
+
+    if(user.photo){
+
+        photo.innerHTML=
+            `<img src="${user.photo}" alt="Profil şəkli">`;
+
+    }else{
+
+        photo.textContent="🙂";
+    }
+}
+
+
+function openEditProfile(){
+
+    const user=getUser();
+
+    if(!user){
+        showPage("login");
+        return;
+    }
+
+    document.getElementById("editName").value=user.username;
+    document.getElementById("editBio").value=user.bio||"";
+    document.getElementById("editCity").value=user.city||"Bakı";
+    document.getElementById("editInterests").value=
+        (user.interests||[]).join(", ");
+
+    showPage("editProfile");
+}
+
+
+function saveProfile(){
+
+    const user=getUser();
+
+    if(!user)return;
+
+    user.username=
+        document.getElementById("editName").value.trim()||user.username;
+
+    user.bio=
+        document.getElementById("editBio").value.trim();
+
+    user.city=
+        document.getElementById("editCity").value;
+
+    user.interests=
+        document.getElementById("editInterests")
+        .value
+        .split(",")
+        .map(x=>x.trim())
+        .filter(Boolean);
+
+    saveUser(user);
+    updateNav();
+
+    showNotification("Profil yadda saxlanıldı ✓");
+
+    showPage("profile");
+}
+
+
+function changePhoto(event){
+
+    const file=event.target.files[0];
+
+    if(!file)return;
+
+    if(!file.type.startsWith("image/")){
+        alert("Zəhmət olmasa şəkil seç.");
+        return;
+    }
+
+    const reader=new FileReader();
+
+    reader.onload=function(e){
+
+        const user=getUser();
+
+        if(!user)return;
+
+        user.photo=e.target.result;
+
+        saveUser(user);
+        renderProfile();
+
+        showNotification("Profil şəkli dəyişdirildi 📷");
+    };
+
+    reader.readAsDataURL(file);
+}
+
+
+/* =========================
+   PROFİLLƏRİ ÇIXART
+========================= */
+
+function profileCard(profile){
+
+    return `
+        <div class="card">
+
+            <div class="avatar">
+
+                ${profile.avatar}
+
+                ${profile.online
+                    ? `<span class="online"></span>`
+                    : ""
+                }
+
+            </div>
+
+            <div class="card-body">
+
+                <h3>
+                    ${profile.name}, ${profile.age}
+                    ${profile.ai ? " 🤖" : ""}
+                </h3>
+
+                <p class="muted">
+                    📍 ${profile.city}
+                </p>
+
+                <p class="muted" style="margin-top:7px">
+                    ${profile.bio}
+                </p>
+
+                <button
+                    class="primary"
+                    onclick="openProfile(${profile.id})">
+
+                    ${profile.ai ? "💬 Söhbət et" : "❤️ Bəyən"}
+
+                </button>
+
+            </div>
+
+        </div>
+    `;
+}
+
+
+function renderPopular(){
+
+    const grid=document.getElementById("popularGrid");
+
+    grid.innerHTML=profiles
+        .slice(0,3)
+        .map(profileCard)
+        .join("");
+}
+
+
+function renderDiscover(){
+
+    const search=
+        document.getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const city=
+        document.getElementById("cityFilter").value;
+
+    const gender=
+        document.getElementById("genderFilter").value;
+
+    const list=profiles.filter(profile=>{
+
+        const nameMatch=
+            profile.name.toLowerCase().includes(search);
+
+        const cityMatch=
+            !city||profile.city===city;
+
+        const genderMatch=
+            !gender||profile.gender===gender;
+
+        return nameMatch&&cityMatch&&genderMatch;
+    });
+
+    const grid=document.getElementById("discoverGrid");
+
+    if(!list.length){
+
+        grid.innerHTML=
+            `<div class="empty">Uyğun profil tapılmadı.</div>`;
+
+        return;
+    }
+
+    grid.innerHTML=list.map(profileCard).join("");
+}
+
+renderPopular();
+renderDiscover();
+
+document.getElementById("searchInput")
+    .addEventListener("input",renderDiscover);
+
+document.getElementById("cityFilter")
+    .addEventListener("change",renderDiscover);
+
+document.getElementById("genderFilter")
+    .addEventListener("change",renderDiscover);
+
+function resetFilters(){
+
+    document.getElementById("searchInput").value="";
+    document.getElementById("cityFilter").value="";
+    document.getElementById("genderFilter").value="";
+
+    renderDiscover();
+}
+
+
+/* =========================
+   PROFİL AÇ
+========================= */
+
+let currentChatProfile=null;
+
+function openProfile(id){
+
+    const profile=profiles.find(x=>x.id===id);
+
+    if(!profile)return;
+
+    if(!getUser()){
+
+        showNotification("Əvvəlcə qeydiyyatdan keç.");
+        showPage("register");
+        return;
+    }
+
+    if(profile.ai){
+
+        currentChatProfile=profile;
+
+        localStorage.setItem(
+            "currentChat",
+            JSON.stringify(profile)
+        );
+
+        showPage("chat");
+
+    }else{
+
+        likeUser(profile);
+    }
+}
+
+
+/* =========================
+   LIKE / MATCH
+========================= */
+
+function likeUser(profile){
+
+    if(!getUser()){
+
+        showNotification("Bəyənmək üçün giriş etməlisən.");
+        showPage("login");
+        return;
+    }
+
+    let likes=
+        JSON.parse(localStorage.getItem("geceLikes")||"[]");
+
+    if(!likes.includes(profile.id)){
+        likes.push(profile.id);
+    }
+
+    localStorage.setItem(
+        "geceLikes",
+        JSON.stringify(likes)
+    );
+
+    /*
+       Demo məqsədli olaraq qarşılıqlı bəyənmə
+       olduqda match göstərilir.
+    */
+
+    showNotification(profile.name+" bəyənildi ❤️");
+
+    document.getElementById("matchText").textContent=
+        profile.name+
+        " ilə qarşılıqlı maraq yarandı. İndi söhbətə başlaya bilərsən.";
+
+    setTimeout(()=>{
+        showPage("match");
+    },500);
+}
+
+
+/* =========================
+   CHAT
+========================= */
+
+function loadChat(){
+
+    let saved=
+        JSON.parse(localStorage.getItem("currentChat"));
+
+    if(!saved){
+        saved=profiles[0];
+    }
+
+    currentChatProfile=saved;
+
+    document.getElementById("chatName").textContent=
+        saved.name;
+
+    document.getElementById("chatAvatar").textContent=
+        saved.avatar;
+
+    document.getElementById("chatStatus").textContent=
+        saved.ai
+        ? "🤖 AI profil · Onlayn"
+        : "Onlayn";
+
+    const key="chat_"+saved.id;
+
+    const messages=
+        JSON.parse(localStorage.getItem(key)||"[]");
+
+    const box=document.getElementById("messages");
+
+    box.innerHTML="";
+
+    if(!messages.length){
+
+        addMessageToScreen(
+            "Salam! Xoş gəlmisən 😊",
+            false
+        );
+
+    }else{
+
+        messages.forEach(message=>{
+            addMessageToScreen(
+                message.text,
+                message.me
+            );
+        });
+    }
+
+    box.scrollTop=box.scrollHeight;
+}
+
+
+function addMessageToScreen(text,me){
+
+    const div=document.createElement("div");
+
+    div.className=
+        me
+        ? "msg me"
+        : "msg ai";
+
+    div.textContent=text;
+
+    document.getElementById("messages")
+        .appendChild(div);
+}
+
+
+function saveChatMessage(text,me){
+
+    if(!currentChatProfile)return;
+
+    const key="chat_"+currentChatProfile.id;
+
+    const messages=
+        JSON.parse(localStorage.getItem(key)||"[]");
+
+    messages.push({
+        text,
+        me
+    });
+
+    localStorage.setItem(
+        key,
+        JSON.stringify(messages)
+    );
+}
+
+
+/* =========================
+   DEMO AI CAVABLARI
+========================= */
+
+function generateAIReply(text,profile){
+
+    const message=text.toLowerCase();
+
+    if(message.includes("salam")||
+       message.includes("hi")||
+       message.includes("necəsən")||
+       message.includes("necesen")){
+
+        return "Salam 😊 Mən yaxşıyam. Sən necəsən?";
+    }
+
+    if(message.includes("adın")||
+       message.includes("adin")){
+
+        return "Mən "+profile.name+"əm 😊 Səninlə tanış olmaq xoşdur.";
+    }
+
+    if(message.includes("harada")||
+       message.includes("hardasan")){
+
+        return "Mən "+profile.city+"dayam. Sən haralısan?";
+    }
+
+    if(message.includes("kino")){
+
+        return "Kino sevirəm 🎬 Xüsusilə maraqlı hekayəsi olan filmləri.";
+    }
+
+    if(message.includes("musiqi")){
+
+        return "Musiqi mənim də xoşladığım mövzulardandır 🎵 Sən daha çox nə dinləyirsən?";
+    }
+
+    if(message.includes("səyahət")||
+       message.includes("seyahat")){
+
+        return "Səyahət çox maraqlıdır ✈️ Fürsət olsa yeni şəhərlər kəşf etmək istərdim.";
+    }
+
+    if(message.includes("görüş")||
+       message.includes("gorus")){
+
+        return "Əvvəlcə bir az söhbət edib tanış olaq 😊";
+    }
+
+    const replies=[
+        "Maraqlı dedin 😊 Bir az daha danış.",
+        "Hə, bunu eşitmək xoş oldu. Sən bu barədə nə düşünürsən?",
+        "Məncə maraqlı mövzudur 😊",
+        "Səninlə söhbət etmək xoşdur.",
+        "Bu mövzuda çox danışa bilərik 😄",
+        "Hmm, maraqlıdır. Davam et, səni dinləyirəm."
+    ];
+
+    return replies[
+        Math.floor(Math.random()*replies.length)
+    ];
+}
+
+
+document.getElementById("chatForm")
+.addEventListener("submit",function(e){
+
+    e.preventDefault();
+
+    const input=document.getElementById("chatText");
+
+    const text=input.value.trim();
+
+    if(!text)return;
+
+    addMessageToScreen(text,true);
+    saveChatMessage(text,true);
+
+    input.value="";
+
+    const profile=currentChatProfile;
+
+    setTimeout(()=>{
+
+        const reply=generateAIReply(text,profile);
+
+        addMessageToScreen(reply,false);
+        saveChatMessage(reply,false);
+
+        const box=document.getElementById("messages");
+
+        box.scrollTop=box.scrollHeight;
+
+    },700);
+});
+
+
+/* =========================
+   HEKAYƏLƏR
+========================= */
+
+const stories=[
+
+    {
+        title:"🌙 Gecənin sirri",
+        short:"Şəhərin sakit küçələrində başlayan gözlənilməz bir tanışlıq iki insanın həyatını dəyişir...",
+        text:`Şəhərin işıqları gecənin sakitliyini aydınladırdı.
+
+Aylin telefondakı son mesaja baxıb gülümsədi. Bir neçə gündür yazışdığı insanla nəhayət görüşmək qərarına gəlmişdilər.
+
+Görüş sadə başladı. Bir kofe, bir neçə zarafat və uzun söhbətlər...
+
+Amma gecənin sonunda hər ikisi bunun sadəcə adi bir tanışlıq olmadığını hiss etdi.
+
+Bəzən ən maraqlı hekayələr planlaşdırılmadan başlayır.`
+    },
+
+    {
+        title:"❤️ İlk görüş",
+        short:"Uzun müddət yazışan iki insan nəhayət ilk dəfə görüşmək qərarına gəlir...",
+        text:`Uzun müddət mesajlaşdıqdan sonra ilk görüş günü gəlib çatdı.
+
+Hər ikisi bir az həyəcanlı idi.
+
+İlk dəqiqələrdə söhbət bir qədər sakit getsə də, sonra ortaq maraqlar üzə çıxmağa başladı.
+
+Musiqi, filmlər, səyahət və gələcək planları haqqında danışdılar.
+
+Görüşün sonunda ikisi də ikinci görüş üçün səbirsizlənirdi.`
+    },
+
+    {
+        title:"✨ Gözlənilməz mesaj",
+        short:"Gecənin bir yarısı gələn sadə bir mesaj yeni bir tanışlığın başlanğıcına çevrilir...",
+        text:`Saat gecə yarısını keçmişdi.
+
+Telefonun ekranında bir bildiriş göründü.
+
+"Salam."
+
+Sadə bir söz idi. Amma cavab verildikdən sonra söhbət saatlarla davam etdi.
+
+İnsan bəzən həyatında mühüm olacaq insanı ən gözlənilməz anda tanıyır.`
+    },
+
+    {
+        title:"☕ Şəhərdə bir axşam",
+        short:"Adi bir axşam təsadüfi qarşılaşma ilə tamam başqa istiqamət alır...",
+        text:`Şəhərin mərkəzində kiçik bir kafedə sakit axşam idi.
+
+İki insan eyni masaya yaxınlaşanda təsadüfən söhbət başladı.
+
+Bir neçə dəqiqə sonra artıq bir-birlərinə yad deyildilər.
+
+Bəzən tanışlıq üçün böyük planlara ehtiyac yoxdur. Sadəcə bir salam kifayətdir.`
+    }
+];
+
+
+function renderStories(){
+
+    document.getElementById("storiesGrid").innerHTML=
+        stories.map((story,index)=>`
+
+            <div class="story">
+
+                <h3>${story.title}</h3>
+
+                <p>${story.short}</p>
+
+                <button
+                    class="secondary"
+                    style="margin-top:18px"
+                    onclick="readStory(${index})">
+
+                    📖 Oxu
+
+                </button>
+
+            </div>
+
+        `).join("");
+}
+
+renderStories();
+
+
+function readStory(index){
+
+    const story=stories[index];
+
+    document.getElementById("readerTitle").textContent=
+        story.title;
+
+    document.getElementById("readerText").textContent=
+        story.text;
+
+    showPage("storyReader");
+}
+
+
+/* =========================
+   NOTİFİKASİYA
+========================= */
+
+let notificationTimer;
+
+function showNotification(text){
+
+    const notification=
+        document.getElementById("notification");
+
+    notification.textContent=text;
+    notification.style.display="block";
+
+    clearTimeout(notificationTimer);
+
+    notificationTimer=setTimeout(()=>{
+
+        notification.style.display="none";
+
+    },2500);
+}
+
+
+/* =========================
+   ÇIXIŞ
+========================= */
+
+function logout(){
+
+    localStorage.removeItem("geceAccount");
+
+    updateNav();
+
+    showNotification("Hesabdan çıxıldı.");
+
+    showPage("home");
+}
+
+
+/* =========================
+   BAŞLANĞIC
+========================= */
+
+renderPopular();
+renderDiscover();
+updateNav();
+
+</script>
+
+</body>
+</html>
+```
+
+Bunu **köhnə `index.html`-in hamısını silib tam olaraq bununla əvəz et** və VS Code-da yadda saxla (`Ctrl + S`). Sonra `index.html`-i brauzerdə aç.
+
+**Qeyd:** AI qızların cavab sistemi hazırda demo/local sistemdir. Həqiqi ChatGPT tipli AI cavabları üçün sonradan API/backend qoşmaq lazımdır; bu kod isə onsuz da işləyəcək.
